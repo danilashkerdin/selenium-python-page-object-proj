@@ -42,4 +42,4 @@ def browser(request):
 
 @pytest.fixture(autouse=True)
 def wait():
-    time.sleep(0.2)
+    time.sleep(1)

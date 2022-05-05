@@ -31,3 +31,14 @@ class ProductPage(BasePage):
 
         alert_inner_price = str(self.browser.find_element(*ProductPageLocators.ALERT_INNER_PRICE).text)
         assert alert_inner_price == product_price, f"Price in alert '{alert_inner_price}' not equal to product price '{product_price}'"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def should_be_success_message(self):
+        assert self.is_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is not presented"
+
+    def is_disappeared_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Not disappeared"
